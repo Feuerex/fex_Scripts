@@ -124,8 +124,8 @@ _outputText = _outputText + "[" + _br;
 	};
 	//debugLog (format ["Log: objectGrabber: %1", _outputArray]);
 } forEach (_objs inAreaArray _triggerObj);
-systemchat format ["%1",_outputText select [count _outputText -4,4]];
-if ("," in (_outputText select [count _outputText -4,4])) then {_outputText = _outputText select [0,count _outputText -4];systemchat "removed"};
+
+if ("," in (_outputText select [count _outputText -4,4])) then {_outputText = _outputText select [0,count _outputText -4];};
 _outputText = _outputText + "]";
 copyToClipboard _outputText;
 hint "Scanning complete. Data (of this part of scanning, if there were multiple) have been saved to your clipboard.";
