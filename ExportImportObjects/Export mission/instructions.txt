@@ -1,0 +1,9 @@
+1) put the scripts from this folder to the mission folder you want to export objects from
+Documents/Arma 3/missions/your mission name 
+(or Documents/Arma 3 - Other profiles/profile name/missions/mission name if you use non-default profile)
+2) place down a trigger
+3) adjust its size however you wish (I recommend not to go over 100x100 though, especially if many objects are involved)
+4) trigger Condition: true
+5) trigger On Activation: _0 = [thisTrigger, true] execVM "terrainGrabber.sqf"
+6) play the mission, and wait for hint confirming that objects have been copied
+7) open notepad or another text editor, CTRL+V

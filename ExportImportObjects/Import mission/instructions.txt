@@ -1,0 +1,13 @@
+1) put the script from this folder to the mission folder you want to import objects into
+Documents/Arma 3/missions/your mission name 
+(or Documents/Arma 3 - Other profiles/profile name/missions/mission name if you use non-default profile) 
+2) get the file you obtained from exporting (see Export mission for instructions), and save it as
+yourScriptName.sqf into the mission folder. Remember this name.
+3) create a trigger in your mission, size is irrelevant
+4) trigger Condition: true
+5) trigger On Activation: 
+_nameOfMyDataFile = "yourScriptName.sqf";
+_0 = [position thisTrigger, getDir thisTrigger, call (compile (preprocessFileLineNumbers _nameOfMyDataFile))] execVM "mapper.sqf";
+
+obviously, replace yourScriptName with whatever you called your file
+6) playtest the mission. All objects will spawn at the mission start at the position of the trigger, respecting its rotation as well.
