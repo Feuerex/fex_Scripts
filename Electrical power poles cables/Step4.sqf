@@ -62,6 +62,9 @@ fex_keyDownEHId = findDisplay 46 displayAddEventHandler ["MouseButtonDown",
 						if (count _ropeArr > 0) then 
 						{
 							{
+								//check rope end positions, if there is a lamp, switch it off
+								_ropePos = ropeEndPosition _x;
+								{_x switchLight "OFF"} forEach (nearestObjects [[(_ropePos select 1) select 0, (_ropePos select 1) select 1],["Lamps_base_F"],1,true]);
 								ropeDestroy _x;
 							} forEach _ropeArr;
 						};
