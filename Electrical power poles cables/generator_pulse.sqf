@@ -30,7 +30,7 @@ if (count _droneArr > 0) then
 					_allEndPoints pushBack [((ropeEndPosition _x) select 1) select 0, ((ropeEndPosition _x) select 1) select 1, 0];
 				} forEach _allRopes;
 				{	//search for poles at every end position
-					_endObjs = nearestObjects [_x, ["Land_PowerPoleWooden_F", "Lamps_base_F"],1, true];
+					_endObjs = nearestObjects [_x, ["Land_PowerPoleWooden_F", "Lamps_base_F"],1.5, true];
 					if (count _endObjs > 0) then 
 					{
 						{_0 = [_x, _mode, _generator] execVM "generator_pulse.sqf";} forEach _endObjs;
