@@ -1,0 +1,25 @@
+Step 1
+Add player action - become an electrician
+
+Step 2
+Once activated, player gets unarmed or equips something that doesn't shoot around
+Script searches for nearby electric poles and adds a huge block on top of each one of them
+Spawn a small sphere at 0,0,0
+
+Step 3
+Loop starts, whenever player looks at any huge block (invisible), move the small sphere at the block position
+
+Step 4
+Player's left and right clicks are tracked through EH. If clicked AND sphere isn't at 0,0,0, sphere disappears, and current pole is
+recorded into memory. A second sphere, green, is displayed instead.
+
+Step 5
+Player's right click removes saved poles from memory and removes the green sphere. The yellow sphere only appears if
+player is looking at a huge block
+current position isn't already recorded as one of saved positions
+yellow sphere is at 0,0,0
+
+Step 6
+When one pole is already selected and another one is picked
+if poles are too far away, cancel action
+if poles are reasonably far away, create a rope between them

@@ -1,0 +1,10 @@
+Sound source
+
+Woodchipper Start (heavy machine) 02.wav
+cmorris035
+https://freesound.org/people/cmorris035/sounds/319152/
+
+thank you very much!
+
+The start and end are separate sound files that play upon pressing related action
+The main loop is 1s repeating itself over constantly while the generator mode is "ON"

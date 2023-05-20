@@ -1,0 +1,40 @@
+class CfgSFX
+{
+	class loop
+	{
+		sound0[] = {"gen_loop.ogg", db-0, 1.0, 60, 1, 0, 0, 0};
+		sounds[] = {sound0};
+		empty[] = {"", 0, 0, 0, 0, 0, 0, 0};
+	};
+};
+
+class CfgSounds 
+{
+sounds[] = {};
+class NoSound
+	{
+    name = "NoSound";
+    sound[] = {"", 0, 1};
+    titles[] = {};
+	};
+class startUp 
+	{
+	name = "startUp";
+	sound[] = {"gen_startUp.ogg", 1, 1};
+	titles[] = {};
+	};
+class shutOff 
+	{
+	name = "shutOff";
+	sound[] = {"gen_shutOff.ogg", 1, 1};
+	titles[] = {};
+	};
+};
+
+class CfgVehicles
+{
+	class gen_loop
+	{
+		sound = "loop";
+	};
+};
