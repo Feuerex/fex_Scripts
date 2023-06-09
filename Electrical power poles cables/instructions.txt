@@ -1,0 +1,69 @@
+#STEP 1
+
+Shortly after the mission starts, you need to initialize important global variables
+by running the following script:
+
+_0 = [] execVM "initVariables.sqf";
+
+Give it a second to finish, then you can call the other scripts.
+
+
+
+#STEP 2
+
+There are several ways to do this
+#METHOD 1
+Simply name your toolbox object and your generator object. You can always have multiple toolboxes or generators.
+Then, use a trigger to call the scripts. I used myToolBox and myGenerator as placeholder names.
+
+_0 = [-1, myToolBox, fex_firstSphere, fex_secondSphere] execVM "Step1.sqf";
+_0 = [myGenerator] execVM "generator_controller.sqf";
+
+
+#METHOD 2
+Place the code into each object's init. The code stays always the same. You don't have to name the objects.
+
+_0 = [-1, this, fex_firstSphere, fex_secondSphere] execVM "Step1.sqf";
+_0 = [this] execVM "generator_controller.sqf";
+
+This method is demonstrated for generators in the attached example mission.
+
+#METHOD 3
+Place a game logic (Systems -> Game logic), and synchronize toolboxes or generators to it.
+Then run the code from the game logic's init box.
+This approach makes it easier to manage scenarios with many toolboxes or generators.
+
+
+_0 = (synchronizedObjects this) spawn {{_0 = [-1,_x, fex_firstSphere, fex_secondSphere] execVM "Step1.sqf";} forEach _this};
+_0 = (synchronizedObjects this) spawn {{_0 = [_x] execVM "generator_controller.sqf";} forEach _this};
+
+This method is demonstrated for toolboxes in the attached example mission.
+
+#METHOD 4
+Load the list of toolboxes or generators dynamically via nearestObjects or any similar commands.
+This approach makes it possible to manage dynamically spawned objects.
+
+_nearbyToolBoxes = nearestObjects [player, ["Land_ToolTrolley_02_F"], 200];
+_nearbyGenerators = nearestObjects [player, ["Land_PowerGenerator_F"], 200];
+
+{_0 = [-1, _x, fex_firstSphere, fex_secondSphere] execVM "Step1.sqf";} forEach _nearbyToolBoxes;
+{_0 = [_x] execVM "generator_controller.sqf";} forEach _nearbyGenerators;
+
+Or use any other approach that fits your scenario the best.
+
+Input parameters for both scripts:
+
+_0 = [-1, _x, fex_firstSphere, fex_secondSphere] execVM "Step1.sqf";
+ID of eventHandler for tracking mouse clicks | integer | -1 ensures that for the first time the script is called, no EH gets deleted (because it doesn't exist yet)
+object to add the action to | object | should be your toolbox
+object to serve as a visual indicator a pole is selected | object | it exists as a global value anyway
+object to serve as a visual indicator a connection is made | object | it exists as a global value anyway
+
+
+_0 = [_x] execVM "generator_controller.sqf";
+object to add actions to, and to track | object | should be your generator
+
+
+
+all other scripts in the scenario call each other as needed, and don't need manual edits, unless
+you want to tweak and edit the functionality.
