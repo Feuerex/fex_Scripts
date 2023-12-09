@@ -1,0 +1,9 @@
+Default mission flow.
+
+EDEN is NOT required
+
+VIP is rescued by coming close and performing the "salute" gesture
+
+VIP moves on their own to the helicopter
+
+VIP gets an event handler for detecting when he gets inside the heli

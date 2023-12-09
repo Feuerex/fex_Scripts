@@ -1,0 +1,9 @@
+Default mission flow.
+
+EDEN is NOT required
+
+VIP is rescued via AddAction
+
+Helicopter gets an EventHandler
+
+Global variables are not used (although I used SetVariable to store some values in object namespaces, so it's not perfect either)

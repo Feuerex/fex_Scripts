@@ -1,0 +1,7 @@
+Default mission flow.
+
+EDEN is required
+
+VIP is rescued via AddAction
+
+Helicopter gets an EventHandler

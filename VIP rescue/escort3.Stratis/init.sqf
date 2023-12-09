@@ -1,0 +1,1 @@
+_0 = [] execVM "l_everythingInOneScript.sqf";

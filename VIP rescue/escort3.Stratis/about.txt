@@ -1,0 +1,9 @@
+Default mission flow.
+
+EDEN is NOT required
+
+Everything is in one big script
+
+VIP is rescued via AddAction
+
+Heli gets the Event Handler

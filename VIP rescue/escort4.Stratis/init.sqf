@@ -1,0 +1,1 @@
+_0 = [] execVM "s00_setup_codeOnly.sqf";
